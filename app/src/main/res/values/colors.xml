@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#595959</color>
+    <color name="colorPrimaryDark">#353535</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="colorAccent1">#595959</color>
+    <color name="colorAccent2">#FFFFFF</color>
+    <color name="colorAccent3">#A08D86</color>
+    <color name="colorAccent4">#96CCE3</color>
+    <color name="colorAccent5">#A1CDD2</color>
+
+    <!--&#45;&#45;zambezi: #595959;-->
+    <!--&#45;&#45;white: #FFFFFF;-->
+    <!--&#45;&#45;zorba: #A08D86;-->
+    <!--&#45;&#45;cornflower: #96CCE3;-->
+    <!--&#45;&#45;zumthor: #D3D6D7;-->
+    <!--&#45;&#45;morning-glory: #A1CDD2;-->
+</resources>
