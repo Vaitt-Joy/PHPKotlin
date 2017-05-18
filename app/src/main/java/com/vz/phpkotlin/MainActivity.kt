@@ -3,6 +3,8 @@ package com.vz.phpkotlin
 import android.content.Intent
 import android.view.View
 import android.widget.Toast
+import com.vz.phpkotlin.ui.act.Camera2Activity
+import com.vz.phpkotlin.ui.act.CameraActivity
 import com.vz.phpkotlin.ui.act.TestActivity
 import com.vz.phpkotlin.ui.base.VzBaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,6 +15,8 @@ class MainActivity : VzBaseActivity(), View.OnClickListener {
         btn_php_check_version.setOnClickListener(this@MainActivity)
         tv_hello.setOnClickListener(this@MainActivity)//MyConstants
         btn_test.setOnClickListener (this@MainActivity)
+        btn_camera.setOnClickListener(this@MainActivity)
+        btn_camera2.setOnClickListener(this@MainActivity)
     }
 
     override fun resume() {
@@ -31,6 +35,11 @@ class MainActivity : VzBaseActivity(), View.OnClickListener {
             }
             R.id.btn_test ->{
                 startActivity(Intent(this@MainActivity, TestActivity::class.java))
+            }
+            R.id.btn_camera ->{
+                startActivity(Intent(this@MainActivity, CameraActivity ::class.java))
+            }R.id.btn_camera2 ->{
+                startActivity(Intent(this@MainActivity, Camera2Activity ::class.java))
             }
             else -> {
 

@@ -15,13 +15,25 @@
 
     <Button
         android:id="@+id/btn_php_check_version"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CheckVersion" />
 
     <Button
         android:id="@+id/btn_test"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="test activity demo" />
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 拍照 " />
+
+    <Button
+        android:id="@+id/btn_camera2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" google 拍照 " />
 </LinearLayout>

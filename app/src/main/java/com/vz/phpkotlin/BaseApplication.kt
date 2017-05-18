@@ -6,12 +6,10 @@ import android.os.Handler
 import android.os.Looper
 import com.tencent.bugly.Bugly
 import com.vz.phpkotlin.constants.MyConstants
-import com.vz.phpkotlin.di.component.AppComponent
 
 /**
  * Created by huangwz on 2017/4/25.
  */
-
 class BaseApplication : Application() {
 
     override fun onCreate() {
@@ -21,8 +19,6 @@ class BaseApplication : Application() {
         mainTreadId = android.os.Process.myTid().toLong()
         mMainLooper = mainLooper
         handler = Handler()
-//        mAppComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
-//        mAppComponent!!.inject(this)
         initData()
     }
 
@@ -33,7 +29,6 @@ class BaseApplication : Application() {
 
     companion object {
 
-        val TAG = "MyApp"
         /**
          * 对外提供整个应用生命周期的Context
          */
@@ -52,6 +47,5 @@ class BaseApplication : Application() {
             private set
         var mainTreadId: Long = 0
             private set
-        var mAppComponent: AppComponent? = null
     }
 }

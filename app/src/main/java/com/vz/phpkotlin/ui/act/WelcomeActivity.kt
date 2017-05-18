@@ -11,7 +11,7 @@ class WelcomeActivity : VzBaseActivity() {
         ToolUI.postTaskDelay(Runnable {
             startActivity(Intent(this@WelcomeActivity, MainActivity::class.java))
             finish()
-        }, 2000)
+        }, 500)
     }
 
     override fun resume() {
