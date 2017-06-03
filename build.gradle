@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.1.1'
+    ext.kotlin_version = '1.1.2-3'
     repositories {
         jcenter()
     }
@@ -20,16 +20,41 @@ allprojects {
     repositories {
         jcenter()
     }
+
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+
+    configurations {
+        deployerJars
+    }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'//不使用缓存，使用仓库中最新的包
 }
+
+subprojects {  //表示除主工程外所有子模块
+    dependencies {
+        deployerJars "org.apache.maven.wagon:wagon-http:2.2"
+    }
+}
+
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
 
 ext {
     buildToolsVersion = '25.0.2'
     compileSdkVersion = 25
-    minSdkVersion = 14
+    minSdkVersion = 9
     targetSdkVersion = 25
     supportLibraryVersion = '25.3.1'
+
+    //仓库选择标记
+    repoType = "remote" //发布到远程仓库（下文中会用到）
+//    repoType = "local" //发布到本地仓库，方便调试，避免调试期间频繁上传到maven仓库（下文中会用到）
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
