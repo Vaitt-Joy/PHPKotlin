@@ -46,7 +46,7 @@ subprojects {  //表示除主工程外所有子模块
 ext {
     buildToolsVersion = '25.0.2'
     compileSdkVersion = 25
-    minSdkVersion = 9
+    minSdkVersion = 10
     targetSdkVersion = 25
     supportLibraryVersion = '25.3.1'
 
@@ -55,6 +55,6 @@ ext {
 //    repoType = "local" //发布到本地仓库，方便调试，避免调试期间频繁上传到maven仓库（下文中会用到）
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
