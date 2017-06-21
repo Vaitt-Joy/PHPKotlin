@@ -1,1 +1,1 @@
-include ':app', ':HDLibrary', ':VzBaseLibrary'
+include ':app', ':HDLibrary', ':VzBaseLibrary', ':LinkTrans'
