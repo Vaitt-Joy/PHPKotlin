@@ -19,6 +19,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url releaseRepositoryUrl }// 仓库地址
     }
 
     apply plugin: 'idea'
@@ -42,7 +43,7 @@ subprojects {  //表示除主工程外所有子模块
 //task clean(type: Delete) {
 //    delete rootProject.buildDir
 //}
-
+apply from: './xxxx.gradle'
 ext {
     buildToolsVersion = '25.0.2'
     compileSdkVersion = 25

@@ -1,0 +1,44 @@
+def isReleaseBuild() {
+    return VERSION_NAME.contains("SNAPSHOT") == false
+}
+
+afterEvaluate { project ->
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                pom.groupId = GROUP
+                pom.artifactId = "hengdaaliosslibrary"
+                pom.version = VERSION_NAME
+                if (isReleaseBuild()) {
+                    repository(url: releaseRepositoryUrl) {
+                        authentication(userName: rootProject.ext.NEXUS_USERNAME, password: rootProject.ext.NEXUS_PASSWORD)
+                    }
+                } else {
+                    snapshotRepository(url: snapshotRepositoryUrl) {
+                        authentication(userName: rootProject.ext.NEXUS_USERNAME, password: rootProject.ext.NEXUS_PASSWORD)
+                    }
+                }
+            }
+        }
+    }
+
+    task androidJavadocs(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    }
+
+    task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+        classifier = 'javadoc'
+        from androidJavadocs.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.sourceFiles
+    }
+
+    artifacts {
+        archives androidSourcesJar
+//  archives androidJavadocsJar
+    }
+}
